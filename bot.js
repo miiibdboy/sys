@@ -63,33 +63,60 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
         ***__General orders__***
 **
 ${prefix}allbots/To see all bots in server
+
 ${prefix}server/To see all info about server
+
 ${prefix}bot/To see bot
+
 ${prefix}count/To know how users you have
+
 ${prefix}invites/ check your invites
+
 ${prefix}invinfo <invitelink here> / invite info
  exp: invinfo m82n8P
+
 ${prefix}invite-codes/to get your invites links
+
 ${prefix}cal/calculator
+
 ${prefix}trans <language> <any thing>/translate
+
 ${prefix}short/To get short link
+
 ${prefix}tag/Write you the word beautifully and great
+
 ${prefix}google/To search Google by Google Docs
+
 ${prefix}perms/Shows you the server's permissions
+
 ${prefix}z5rf/Decorate a word or phrase
+
 ${prefix}rooms/It shows you all the rumets to the server with their number
+
 ${prefix}roles/It shows you all the ranks in the server beautifully
+
 ${prefix}emojilist/It shows you all the emoticons to the server
+
 ${prefix}say/Repeat the speech to write
+
 ${prefix}image/server pic
+
 ${prefix}members/Show you the number of all cases of people and the number of bots and the number of people
+
 ${prefix}id/information about you
+
 ${prefix}bans / Number of persons excluded
+
 ${prefix}avatar/Your picture or picture of Tamishnu
+
 ${prefix}embed/Repeat to say sweetly
+
 ${prefix}emoji <any things>/To convert any word you say to emoji
+
 ${prefix}inv/To call bot to server
+
 ${prefix}support/ bot server
+
 ${prefix}contact/Submit a proposal or correspondence to the owner of the bot
 **
   `
