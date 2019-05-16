@@ -27,7 +27,7 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
-const prefix = 'a';
+const prefix = '*';
 var table = require('table').table
 var ti={}  
 ,spee={}
@@ -62,99 +62,88 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
     let pages = [`**
         ***__General orders__***
 **
-${prefix}allbots/لعرض جميع البوتات الي بالسيرفر
-${prefix}server/يعرض لك معلومات عن السيرفر
-${prefix}bot/يعرض لك كل معلومات البوت
-${prefix}count/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
-${prefix}invites/ يعرض لك  عدد انفايتاتك بالسيرفر 
-${prefix}invinfo <invitelink here> / لمعلومات عن الدعوه
- مثال : invinfo m82n8P
-${prefix}invite-codes/يعرض لك روابط الانفايتات حكك في السيرفر 
-${prefix}cal/اله حاسبة
-${prefix}trans <language> <any thing>/يترجم لك الي تبيه من اي لغة
-${prefix}short/يختصر لك رابط كبير الى رابط صغير
-${prefix}tag/يكتب لك الكلمة بشكل جميل وكبير
-${prefix}google/للبحث في قوقل عن طريق الدسكورد
-${prefix}perms/يعرض لك برمشناتك بالسيرفر
-${prefix}z5rf/يزخرف لك كلمة او جملة
-${prefix}rooms/يعرض لك كل الرومات الي بالسيرفر مع عددها
-${prefix}roles/يعرض لك كل الرانكات بالسيرفر بشكل جميل
-${prefix}emojilist/يعرض لك كل الايموجيات الي بالسيرفر
-${prefix}say/يكرر الكلام الي تكتبو
-${prefix}image/صورة السيرفر
-${prefix}members/عرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص
-${prefix}id/معلومات عنك
-${prefix}bans / عدد الاشخاص المبندة 
-${prefix}avatar/صورتك او صورة الي تمنشنو
-${prefix}embed/يكرر الي تقولو بشكل حلو
-${prefix}emoji <any things>/لتحويل اي كلمه تقولها الي ايموجي
-${prefix}inv/لدعوة البوت الى سيرفرك
-${prefix}support/سيرفر الدعم
-${prefix}contact/ارسال اقتراح او لمراسلة صاحب البوت
+${prefix}allbots/To see all bots in server
+${prefix}server/To see all info about server
+${prefix}bot/To see bot
+${prefix}count/To know how users you have
+${prefix}invites/ check your invites
+${prefix}invinfo <invitelink here> / invite info
+ exp: invinfo m82n8P
+${prefix}invite-codes/to get your invites links
+${prefix}cal/calculator
+${prefix}trans <language> <any thing>/translate
+${prefix}short/To get short link
+${prefix}tag/Write you the word beautifully and great
+${prefix}google/To search Google by Google Docs
+${prefix}perms/Shows you the server's permissions
+${prefix}z5rf/Decorate a word or phrase
+${prefix}rooms/It shows you all the rumets to the server with their number
+${prefix}roles/It shows you all the ranks in the server beautifully
+${prefix}emojilist/It shows you all the emoticons to the server
+${prefix}say/Repeat the speech to write
+${prefix}image/server pic
+${prefix}members/Show you the number of all cases of people and the number of bots and the number of people
+${prefix}id/information about you
+${prefix}bans / Number of persons excluded
+${prefix}avatar/Your picture or picture of Tamishnu
+${prefix}embed/Repeat to say sweetly
+${prefix}emoji <any things>/To convert any word you say to emoji
+${prefix}inv/To call bot to server
+${prefix}support/ bot server
+${prefix}contact/Submit a proposal or correspondence to the owner of the bot
 **
   `
 ,`
         ***__Administrative Orders__***
 **
-${prefix}move @user /  لسحب الشخص الى روومك
-${prefix}bc / رسالة جماعية الى كل اعضاء السيرفر
-${prefix}bk / رسالة جماعيه مع
-${prefix}rolebc <everyone or @role> / راسال رساله جماعيه لرتبه محدده
-${prefix}role @user <rank> / لأعطاء رتبة لعضو معين
-${prefix}roleremove @user <rank> / لازالة الرتبة من شخص معين
-${prefix}give all <rank> / لأعطاء رتبة للجميع
-${prefix}give humans <rank> / لأعطاء رتبة للاشخاص فقط
-${prefix}give bots <rank> / لأعطاء رتبة لجميع البوتات
-${prefix}hchannel / اخفاء الشات
-${prefix}schannel / اضهار الشات المخفية
-${prefix}clr <numbr> / مسح الشات بعدد
-${prefix}clear / مسح الشات
-${prefix}mute @user <time> / اعطاء العضو ميوت 
-${prefix}unmute @user / لفك الميوت عن الشخص 
-${prefix}kick @user <reason> / طرد الشخص من السيرفر
-${prefix}ban @user <reason> / حضر الشخص من السيرفر
-${prefix}mutechannel / تقفيل الشات
-${prefix}unmutechannel / فتح الشات
-${prefix}dc / مسح كل الرومات
-${prefix}dr / <مسح كل الرانكات <لازم تكون رانك البوت فوق كل الرانكات
-${prefix}ct <name> / انشاء شات
-${prefix}cv <name> / انشاء رووم فويس
-${prefix}temp / لانشاء روم مؤقت
-${prefix}delet <name> / مسح الشات او الرووم فويس
-${prefix}make <number> / ينشا لك الوان مع كم الوان تبي
-${prefix}color <number> / لختيار لون
-${prefix}deletecolors <number> / لحذف الالوان
+${prefix}move @user /  to move user to you
+${prefix}bc / general messege
+${prefix}bk / Collective machine with
+${prefix}rolebc <everyone or @role> / Rasal is a collective message for a specific rank
+${prefix}role @user <rank> / To give a rank to a particular member
+${prefix}roleremove @user <rank> / To remove a rank from a particular person
+${prefix}give all <rank> / To give rank to all
+${prefix}give humans <rank> / To give rank to people only
+${prefix}give bots <rank> / To give rank to all bots
+${prefix}hchannel / Hide Chats
+${prefix}schannel / Show hidden chat
+${prefix}clr <numbr> / Clear the number by number
+${prefix}clear / Clear Chat
+${prefix}mute @user <time> / Give the member Myot
+${prefix}unmute @user / To break the jute from the person
+${prefix}kick @user <reason> / Expelling the person from the server
+${prefix}ban @user <reason> / The person came from the server
+${prefix}mutechannel / Shakat Shat
+${prefix}unmutechannel / Open Chat
+${prefix}dc / Clear all rheumatism
+${prefix}dr / <Clear all the bunches)
+${prefix}ct <name> / Create a chat
+${prefix}cv <name> / Create Room Voice
+${prefix}temp / To create a temporary rom
+${prefix}delet <name> / Clear the chat or voice
+${prefix}make <number> / Colors are created with a ton of colors
+${prefix}color <number> / To select a color
+${prefix}deletecolors <number> / To delete colors
 **
    `,`
-        ***__Music orders__***
-**
-${prefix}play / لتشغيل أغنية برآبط أو بأسم
-${prefix}skip / لتجآوز الأغنية الحآلية
-${prefix}pause / إيقآف الأغنية مؤقتا
-${prefix}resume / لموآصلة الإغنية بعد إيقآفهآ مؤقتا
-${prefix}vol / لتغيير درجة الصوت 100 - 0
-${prefix}stop / لإخرآج البوت من الروم
-${prefix}np / لمعرفة الأغنية المشغلة حآليا
-${prefix}queue / لمعرفة قآئمة التشغيل
-**
+
         ***__Games orders__***
  **       
-${prefix}rps / حجر ورقة مقص
-${prefix}speed / اسرع كتابة
-${prefix}quas / اسئلة عامة
-${prefix}نكت / نكت 
-${prefix}لعبة فكك / فكك
-${prefix}عواصم عشوائي/عواصم
-${prefix}لعبة كت تويت / كت تويت
-${prefix}roll <number> / قرعة
-${prefix}لو خيروك بطريقة حلوة / لو خيروك
-${prefix}لعبة مريم / مريم
-${prefix}فوائد ونصائح  / هل تعلم
-${prefix}يعطيك عقابات قاسية / عقاب 
+${prefix}rps / Stone Sheet Scissors
+${prefix}speed / fast write
+${prefix}quas / qua
+${prefix}memes / memes
+${prefix}fq / Game decoding
+${prefix}ctr / Random capitals
+${prefix}roll <number> / roll
+${prefix}ifc / if they made you choose
+${prefix}mrm / maryem game
+${prefix}do.u.k / Benefits and tips
+${prefix}punishment / It gives you harsh punishments
 =.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.
-welcome يتم الترحيب فى روم باسم
-G.setwelcomer <text channel name> لاختيار روم للترحيب
-${prefix}voiceonline / لتفعيل روم الفويس اونلاين
+welcome welcomer 
+G.setwelcomer <text channel name> To choose Rom to welcome
+${prefix}voiceonline / To activate the voicemail online
 **
    
 `]
@@ -331,7 +320,7 @@ message.channel.send(`${user} has ${inviteCount} invites.`);
              if(message.content.startsWith(prefix + 'invite-codes')) {
 let guild = message.guild
 var codes = [""]
-message.channel.send(":postbox: **لقد قمت بأرسال جميع روابط الدعوات التي قمت بأنشائها في الخاص**")
+message.channel.send(":postbox: **I have sent all the invitations links that I have created in your**")
 guild.fetchInvites()
 .then(invites => {
 invites.forEach(invite => {
@@ -431,7 +420,7 @@ client.on('message', message => {
 client.on('message', message => {
 if (message.content.startsWith(prefix + 'tag')) {
     let args = message.content.split(" ").slice(1);
-if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');  
+if(!args[0]) return message.reply('Marjou writing the text of my father');  
 
     figlet(args.join(" "), (err, data) => {
               message.channel.send("```" + data + "```")
@@ -543,8 +532,8 @@ client.on('message', message => {
 
 // +say
   if (command === "say") {
-if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-  if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+if(!message.channel.guild) return message.channel.send('**This is only for servers**').then(m => m.delete(5000));
+  if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**Unfortunately you do not have permission** `ADMINISTRATOR`' );
           message.delete()
     message.channel.sendMessage(args.join(" "))
   }
@@ -552,8 +541,8 @@ if(!message.channel.guild) return message.channel.send('**هذا الأمر فق
  
 
 if (command == "embed") {
-if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-  if(!message.member.hasPermission('MANAGE_MESSAGES')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `MANAGE_MESSAGES`' );
+if(!message.channel.guild) return message.channel.send('**This is only for servers**').then(m => m.delete(5000));
+  if(!message.member.hasPermission('MANAGE_MESSAGES')) return      message.channel.send('**Unfortunately you do not have permission** `MANAGE_MESSAGES`' );
     let say = new Discord.RichEmbed()
     .setDescription(args.join("  "))
     .setColor(0x23b2d6)
@@ -644,7 +633,7 @@ let embed = new Discord.RichEmbed()
 .setFooter(message.author.username, message.author.avatarURL)
 
 message.channel.send({embed});
-    if (!message) return message.reply('**ضع المينشان بشكل صحيح  ? **')
+    if (!message) return message.reply('**Place the minchans properly ? **')
 
 }
 });
@@ -732,16 +721,16 @@ let args = message.content.split(" ").slice(1).join(" ");
 
 
 client.users.get("516473846983950336").send(
-    "\n" + "**" + "? السيرفر :" + "**" +
+    "\n" + "**" + "? server :" + "**" +
     "\n" + "**" + "» " + message.guild.name + "**" +
-    "\n" + "**" + " ? المرسل : " + "**" +
+    "\n" + "**" + " ? meseg owner : " + "**" +
     "\n" + "**" + "» " + message.author.tag + "**" +
-    "\n" + "**" + " ? الرسالة : " + "**" +
+    "\n" + "**" + " ? messege : " + "**" +
     "\n" + "**" + args + "**")
 
 let embed = new Discord.RichEmbed()
      .setAuthor(message.author.username, message.author.avatarURL)
-     .setDescription(':mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح')
+     .setDescription(':mailbox_with_mail: The message was successfully sent to the bot owner')
      .setThumbnail(message.author.avatarURL)
      .setFooter("By : 3bker")
                                                 
@@ -757,7 +746,7 @@ if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'move')) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
  if (message.mentions.users.size === 0) {
- return message.channel.send("``لاستخدام الأمر اكتب هذه الأمر : " +prefix+ "اسحب [USER]``")
+ return message.channel.send("``Use the Type command for this command : " +prefix+ "اسحب [USER]``")
 }
 if (message.member.voiceChannel != null) {
  if (message.mentions.members.first().voiceChannel != null) {
@@ -766,7 +755,7 @@ if (message.member.voiceChannel != null) {
 var embed = new Discord.RichEmbed()
  .setTitle("Succes!")
  .setColor("#000000")
- .setDescription(`لقد قمت بسحب <@${usermentioned}> الى الروم الصوتي الخاص بك? `)
+ .setDescription(`u move <@${usermentioned}> Into your audio rom? `)
 var embed = new Discord.RichEmbed()
 .setTitle(`You are Moved in ${message.guild.name}`)
  .setColor("RANDOM")
@@ -774,10 +763,10 @@ var embed = new Discord.RichEmbed()
  message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
 message.guild.members.get(usermentioned).send(embed)
 } else {
-message.channel.send("``لا تستطيع سحب "+ message.mentions.members.first() +" `يجب ان يكون هذه العضو في روم صوتي`")
+message.channel.send("``i cant move "+ message.mentions.members.first() +" `This member must be in the audio Rom`")
 }
 } else {
- message.channel.send("**``يجب ان تكون في روم صوتي لكي تقوم بسحب العضو أليك``**")
+ message.channel.send("**``You must be in an audio stream to drag the member``**")
 }
 } else {
 message.react("?")
@@ -785,12 +774,12 @@ message.react("?")
  client.on('message', message => {
   if(!message.channel.guild) return;
 if(message.content.startsWith('abc')) {
-if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+if(!message.channel.guild) return message.channel.send('**This is only for servers**').then(m => m.delete(5000));
+if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**Unfortunately you do not have permission** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let copy = "3bker Community ©";
+let copy = "snap Community ©";
 let request = `Requested By ${message.author.username}`;
-if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
+if (!args) return message.reply('**You must type a word or phrase to send the podcast**');message.channel.send(`**Content Are you sure you want to send your podcast? \nPodcast content:** \` ${args}\``).then(msg => {
 msg.react('✅')
 .then(() => msg.react('❌'))
 .then(() =>msg.react('?'))
