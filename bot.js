@@ -2390,7 +2390,7 @@ client.on('message', message => {
       message.channel.send(` **Please wait ${pretty(r, {verbose:true})}**`).then(m => m.delete(5000));
       return;
       }
-      if ( message.content == prefix+'لو خيروك'){
+      if ( message.content == prefix+'ifc'){
          
           try{
   //body
